@@ -17,17 +17,18 @@ public class Picker
 
         foreach (Person person in _people)
         {
-            string name = PickName(person);
+            string name = PickName(person, names);
 
             pickedNames.Add(person.Name, name);
+
+            names.Remove(name);
         }
 
         return pickedNames;
     }
 
-    public string PickName(Person person)
+    public string PickName(Person person, IList<string> names)
     {
-        var names = _people.Select(p => p.Name).ToList();
         var name = names[_random.Next(names.Count)];
 
         while (name == person.Name || name == person.Partner)

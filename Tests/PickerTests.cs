@@ -39,17 +39,20 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestPickName()
+        public void TestAllNamesArePicked()
         {
-            // Arrange
-            var person = _people[0];
-
             // Act
-            var result = _picker.PickName(person);
+            var result = _picker.PickNames();
 
             // Assert
-            Assert.AreNotEqual(person.Name, result);
-            Assert.AreNotEqual(person.Partner, result);
+            Assert.AreNotEqual(result.Count, 0, "No names were picked");
+            Assert.AreEqual(_people.Count, result.Count);
+            foreach (var person in _people)
+            {
+                Assert.IsTrue(result.Values.Contains(person.Name), $"Name {person.Name} was not picked");
+            }
         }
     }
+
+
 }
