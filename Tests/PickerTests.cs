@@ -1,13 +1,10 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
 namespace Tests
 {
     [TestClass]
     public class PickerTests
     {
-        private Picker _picker;
-        private IList<Person> _people;
+        private Picker _picker = null!;
+        private IList<Person> _people = null!;
 
         [TestInitialize]
         public void Setup()
