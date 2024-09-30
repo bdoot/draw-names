@@ -4,8 +4,6 @@ using System.Text.Json;
 
 string input = await Console.In.ReadToEndAsync();
 
-Console.WriteLine($"Input: {input}");
-
 JsonSerializerOptions options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true, PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
 IList<Person>? people = JsonSerializer.Deserialize<IList<Person>>(input, options);
